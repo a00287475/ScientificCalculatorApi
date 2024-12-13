@@ -80,7 +80,37 @@ namespace ScientificCalculatorApi.Tests
             Assert.Equal(10.0, result); // (20/200) * 100 = 10%
         }
 
-       
+        // Test for Modulus method
+        [Fact]
+        public void Modulus_ReturnsCorrectRemainder_WhenGivenTwoNumbers()
+        {
+            var result = _calculatorService.Modulus(10.0, 3.0);
+            Assert.Equal(1.0, result); // 10 % 3 = 1
+        }
+
+        // Test for Factorial method
+        [Fact]
+        public void Factorial_ReturnsCorrectFactorial_WhenGivenANumber()
+        {
+            var result = _calculatorService.Factorial(5);
+            Assert.Equal(120, result); // 5! = 5 * 4 * 3 * 2 * 1 = 120
+        }
+
+        // Test for Factorial method with negative number (Exception case)
+        [Fact]
+        public void Factorial_ThrowsArgumentException_WhenGivenNegativeNumber()
+        {
+            Assert.Throws<ArgumentException>(() => _calculatorService.Factorial(-1));
+        }
+
+        // Test for CubeRoot method
+        [Fact]
+        public void CubeRoot_ReturnsCorrectCubeRoot_WhenGivenANumber()
+        {
+            var result = _calculatorService.CubeRoot(27.0);
+            Assert.Equal(3.0, result); // Cube root of 27 is 3
+        }
+
 
     }
 }
