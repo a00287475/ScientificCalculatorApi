@@ -49,6 +49,38 @@ namespace ScientificCalculatorApi.Tests
             Assert.Equal(5.0, result);
         }
 
-        
+        // Test for Divide method with zero denominator (Exception case)
+        [Fact]
+        public void Divide_ThrowsDivideByZeroException_WhenDividingByZero()
+        {
+            Assert.Throws<DivideByZeroException>(() => _calculatorService.Divide(10.0, 0));
+        }
+
+        // Test for SquareRoot method
+        [Fact]
+        public void SquareRoot_ReturnsCorrectSquareRoot_WhenGivenANumber()
+        {
+            var result = _calculatorService.SquareRoot(16.0);
+            Assert.Equal(4.0, result);
+        }
+
+        // Test for Exponent method
+        [Fact]
+        public void Exponent_ReturnsCorrectPower_WhenGivenBaseAndExponent()
+        {
+            var result = _calculatorService.Exponent(2.0, 3.0);
+            Assert.Equal(8.0, result); // 2^3 = 8
+        }
+
+        // Test for Percentage method
+        [Fact]
+        public void Percentage_ReturnsCorrectPercentage_WhenGivenValueAndTotal()
+        {
+            var result = _calculatorService.Percentage(20.0, 200.0);
+            Assert.Equal(10.0, result); // (20/200) * 100 = 10%
+        }
+
+       
+
     }
 }
